@@ -13,7 +13,7 @@
 # General Public License for more details.
 
 '''
-bindings for AAlib, an ascii art library
+bindings for AAlib, an ASCII art library
 '''
 
 import ctypes as _ct
