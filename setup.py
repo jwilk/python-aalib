@@ -26,7 +26,7 @@ setup(
 	description = 'Bindings for AAlib',
 	long_description = __doc__.strip(),
 	classifiers = classifiers,
-	url = 'http://jwilk.nfshost.com/software/python-aalib.html',
+	url = 'http://jwilk.net/software/python-aalib.html',
 	author = 'Jakub Wilk',
 	author_email = 'ubanus@users.sf.net',
 	py_modules = ['aalib']
