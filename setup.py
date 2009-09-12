@@ -14,10 +14,7 @@ Programming Language :: Python :: 2
 Topic :: Multimedia :: Graphics\
 '''.split('\n')
 
-try:
-        from setuptools import setup
-except ImportError:
-        from distutils.core import setup
+from distutils.core import setup
 
 setup(
 	name = 'python-aalib',
