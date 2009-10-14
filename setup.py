@@ -17,16 +17,16 @@ Topic :: Multimedia :: Graphics\
 from distutils.core import setup
 
 setup(
-	name = 'python-aalib',
-	version = '0.1',
-	license = 'GNU GPL 2',
-	description = 'Bindings for AAlib',
-	long_description = __doc__.strip(),
-	classifiers = classifiers,
-	url = 'http://jwilk.net/software/python-aalib.html',
-	author = 'Jakub Wilk',
-	author_email = 'ubanus@users.sf.net',
-	py_modules = ['aalib']
+    name = 'python-aalib',
+    version = '0.1',
+    license = 'GNU GPL 2',
+    description = 'Bindings for AAlib',
+    long_description = __doc__.strip(),
+    classifiers = classifiers,
+    url = 'http://jwilk.net/software/python-aalib.html',
+    author = 'Jakub Wilk',
+    author_email = 'ubanus@users.sf.net',
+    py_modules = ['aalib']
 )
 
 # vim:ts=4 sw=4 et
