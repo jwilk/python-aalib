@@ -14,7 +14,10 @@ Programming Language :: Python :: 2
 Topic :: Multimedia :: Graphics\
 '''.split('\n')
 
+import os
 from distutils.core import setup
+
+os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 
 setup(
     name = 'python-aalib',
