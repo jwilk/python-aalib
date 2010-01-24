@@ -21,7 +21,7 @@ os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 
 setup(
     name = 'python-aalib',
-    version = '0.1',
+    version = '0.1.1',
     license = 'GNU GPL 2',
     description = 'Bindings for AAlib',
     long_description = __doc__.strip(),

@@ -1,3 +1,9 @@
+python-aalib (0.1.1) UNRELEASED; urgency=low
+
+  * 
+
+ -- Jakub Wilk <ubanus@users.sf.net>  Sun, 24 Jan 2010 23:27:02 +0100
+
 python-aalib (0.1) unstable; urgency=low
 
   * Initial release.
