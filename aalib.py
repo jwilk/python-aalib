@@ -143,6 +143,9 @@ aa_mem_d = Driver.in_dll(libaa, 'mem_d')
 class ScreenInitializationFailed(Exception):
     pass
 
+class NoImageBuffer(Exception):
+    pass
+
 class Screen(object):
 
     def _get_default_settings(self):

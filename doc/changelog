@@ -1,6 +1,7 @@
 python-aalib (0.1.1) UNRELEASED; urgency=low
 
-  * 
+  * Define the NoImageBuffer exception.
+    Thanks to Piotr Ożarowski for the bug report.
 
  -- Jakub Wilk <ubanus@users.sf.net>  Sun, 24 Jan 2010 23:27:02 +0100
 
