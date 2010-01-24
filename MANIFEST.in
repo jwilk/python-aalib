@@ -1,1 +1,3 @@
 include doc/changelog
+include COPYING
+include test.py
