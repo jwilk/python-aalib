@@ -234,14 +234,14 @@ class Screen(object):
             if y < 0:
                 continue
             if y >= virtual_height:
-                continue
+                break
             p = y * virtual_width
             for ix in xrange(image_width):
                 x = ix + y0
                 if x < 0:
                     continue
                 if x >= virtual_width:
-                    continue
+                    break
                 self._framebuffer[p + x] = image.getpixel((ix, iy))
 
     def __getitem__(self, xy):
