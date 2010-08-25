@@ -17,7 +17,6 @@ bindings for AAlib, an ASCII art library
 '''
 
 import ctypes as _ct
-from itertools import imap as _map
 
 libaa = _ct.CDLL('libaa.so.1')
 
