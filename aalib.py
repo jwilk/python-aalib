@@ -181,7 +181,7 @@ class Screen(object):
             context = self._context
         except AttributeError:
             return
-        aa_close(self._context)
+        aa_close(context)
         del self._context
 
     @property
