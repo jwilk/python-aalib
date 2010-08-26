@@ -223,25 +223,11 @@ class Screen(object):
         virtual_width = self._virtual_width
         virtual_height = self._virtual_height
         (x0, y0) = xy
-        x0 = max(x0, 0)
-        y0 = max(y0, 0)
         (image_width, image_height) = image.size
-        x1 = min(x0 + image_width, virtual_width)
-        y1 = min(x0 + image_height, virtual_height)
-        for iy in xrange(image_height):
-            y = iy + x0
-            if y < 0:
-                continue
-            if y >= virtual_height:
-                break
+        for y in xrange(max(y0, 0), min(y0 + image_height, virtual_height)):
             p = y * virtual_width
-            for ix in xrange(image_width):
-                x = ix + y0
-                if x < 0:
-                    continue
-                if x >= virtual_width:
-                    break
-                self._framebuffer[p + x] = image.getpixel((ix, iy))
+            for x in xrange(max(x0, 0), min(x0 + image_width, virtual_width)):
+                self._framebuffer[p + x] = image.getpixel((x - x0, y - y0))
 
     def __getitem__(self, xy):
         '''Get a pixel from the virtual screen.'''
