@@ -1,8 +1,9 @@
 python-aalib (0.2) UNRELEASED; urgency=low
 
   * Optimize Screen.put_image().
+  * Relicense to the Expat license.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Fri, 19 Feb 2010 16:05:19 +0100
+ -- Jakub Wilk <jwilk@jwilk.net>  Sat, 04 Sep 2010 13:33:23 +0200
 
 python-aalib (0.1.1) unstable; urgency=low
 
