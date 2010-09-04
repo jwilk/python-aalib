@@ -7,7 +7,7 @@ an ASCII art library.
 classifiers = '''\
 Development Status :: 4 - Beta
 Intended Audience :: Developers
-License :: OSI Approved :: GNU General Public License (GPL)
+License :: OSI Approved :: MIT License
 Operating System :: OS Independent
 Programming Language :: Python
 Programming Language :: Python :: 2
@@ -22,7 +22,7 @@ os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 setup(
     name = 'python-aalib',
     version = '0.1.1',
-    license = 'GNU GPL 2',
+    license = 'MIT',
     description = 'Bindings for AAlib',
     long_description = __doc__.strip(),
     classifiers = classifiers,
