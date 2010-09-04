@@ -19,9 +19,15 @@ from distutils.core import setup
 
 os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 
+try:
+    f = open('doc/changelog')
+    version = f.readline().split()[1].strip('()')
+finally:
+    f.close()
+
 setup(
     name = 'python-aalib',
-    version = '0.1.1',
+    version = version,
     license = 'MIT',
     description = 'Bindings for AAlib',
     long_description = __doc__.strip(),
