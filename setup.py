@@ -32,7 +32,7 @@ setup(
     description = 'Bindings for AAlib',
     long_description = __doc__.strip(),
     classifiers = classifiers,
-    url = 'http://jwilk.net/software/python-aalib.html',
+    url = 'http://jwilk.net/software/python-aalib',
     author = 'Jakub Wilk',
     author_email = 'jwilk@jwilk.net',
     py_modules = ['aalib']
