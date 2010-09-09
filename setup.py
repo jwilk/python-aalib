@@ -15,7 +15,7 @@ Topic :: Multimedia :: Graphics\
 '''.split('\n')
 
 import os
-from distutils.core import setup
+import distutils.core
 
 os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 
@@ -25,7 +25,7 @@ try:
 finally:
     f.close()
 
-setup(
+distutils.core.setup(
     name = 'python-aalib',
     version = version,
     license = 'MIT',
