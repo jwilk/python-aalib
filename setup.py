@@ -4,15 +4,15 @@
 an ASCII art library.
 '''
 
-classifiers = '''\
+classifiers = '''
 Development Status :: 4 - Beta
 Intended Audience :: Developers
 License :: OSI Approved :: MIT License
 Operating System :: OS Independent
 Programming Language :: Python
 Programming Language :: Python :: 2
-Topic :: Multimedia :: Graphics\
-'''.split('\n')
+Topic :: Multimedia :: Graphics
+'''.strip().split('\n')
 
 import os
 import distutils.core
