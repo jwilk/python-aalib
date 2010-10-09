@@ -19,8 +19,8 @@ import distutils.core
 
 os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 
+f = open('doc/changelog')
 try:
-    f = open('doc/changelog')
     version = f.readline().split()[1].strip('()')
 finally:
     f.close()
