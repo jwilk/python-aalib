@@ -8,7 +8,7 @@ classifiers = '''
 Development Status :: 4 - Beta
 Intended Audience :: Developers
 License :: OSI Approved :: MIT License
-Operating System :: OS Independent
+Operating System :: POSIX
 Programming Language :: Python
 Programming Language :: Python :: 2
 Topic :: Multimedia :: Graphics
