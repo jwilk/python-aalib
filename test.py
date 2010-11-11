@@ -1,7 +1,6 @@
 import aalib
 import Image
 import urllib2
-import aalib, urllib2, Image
 from cStringIO import StringIO
 
 screen = aalib.AnsiScreen(width=60, height=30)
