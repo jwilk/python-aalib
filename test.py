@@ -1,7 +1,8 @@
-import aalib
-import Image
 import urllib2
 from cStringIO import StringIO
+
+import Image
+import aalib
 
 screen = aalib.AnsiScreen(width=60, height=30)
 fp = StringIO(urllib2.urlopen('http://python.org/favicon.ico').read())
