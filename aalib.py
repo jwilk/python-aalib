@@ -36,9 +36,7 @@ FontPtr = _ct.POINTER(Font)
 class Structure(_ct.Structure):
     def clone(self):
         clone = type(self)()
-        size = min(_ct.sizeof(self), _ct.sizeof(clone))
-        bytes = buffer(self)[:]
-        _ct.memmove(_ct.addressof(clone), bytes, size)
+        _ct.pointer(clone)[0] = self
         return clone
 
 class HardwareSettings(Structure):
