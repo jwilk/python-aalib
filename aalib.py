@@ -24,41 +24,41 @@
 bindings for AAlib, an ASCII art library
 '''
 
-import ctypes as _ct
+import ctypes as ctypes
 
-libaa = _ct.CDLL('libaa.so.1')
+libaa = ctypes.CDLL('libaa.so.1')
 
-class Font(_ct.Structure):
+class Font(ctypes.Structure):
     pass
 
-FontPtr = _ct.POINTER(Font)
+FontPtr = ctypes.POINTER(Font)
 
-class Structure(_ct.Structure):
+class Structure(ctypes.Structure):
     def clone(self):
         clone = type(self)()
-        _ct.pointer(clone)[0] = self
+        ctypes.pointer(clone)[0] = self
         return clone
 
 class HardwareSettings(Structure):
     _pack_ = 4
     _fields_ = [
         ('font', FontPtr),
-        ('options', _ct.c_int),
-        ('min_width', _ct.c_int),
-        ('min_height', _ct.c_int),
-        ('max_width', _ct.c_int),
-        ('max_height', _ct.c_int),
-        ('recommended_width', _ct.c_int),
-        ('recommended_height', _ct.c_int),
-        ('physical_width', _ct.c_int),
-        ('physical_height', _ct.c_int),
-        ('width', _ct.c_int),
-        ('height', _ct.c_int),
-        ('dim_value', _ct.c_double),
-        ('bold_value', _ct.c_double),
+        ('options', ctypes.c_int),
+        ('min_width', ctypes.c_int),
+        ('min_height', ctypes.c_int),
+        ('max_width', ctypes.c_int),
+        ('max_height', ctypes.c_int),
+        ('recommended_width', ctypes.c_int),
+        ('recommended_height', ctypes.c_int),
+        ('physical_width', ctypes.c_int),
+        ('physical_height', ctypes.c_int),
+        ('width', ctypes.c_int),
+        ('height', ctypes.c_int),
+        ('dim_value', ctypes.c_double),
+        ('bold_value', ctypes.c_double),
     ]
 
-HardwareSettingsPtr = _ct.POINTER(HardwareSettings)
+HardwareSettingsPtr = ctypes.POINTER(HardwareSettings)
 
 OPTION_NORMAL_MASK = 1
 OPTION_DIM_MASK = 2
@@ -79,15 +79,15 @@ DEFAULT_HARDWARE_SETTINGS = HardwareSettings.in_dll(libaa, 'aa_defparams')
 class RenderSettings(Structure):
     _pack_ = 4
     _fields_ = [
-        ('brightness', _ct.c_int),
-        ('contrast', _ct.c_int),
-        ('gamma', _ct.c_float),
-        ('dithering_mode', _ct.c_int),
-        ('inversion', _ct.c_int),
-        ('random', _ct.c_int),
+        ('brightness', ctypes.c_int),
+        ('contrast', ctypes.c_int),
+        ('gamma', ctypes.c_float),
+        ('dithering_mode', ctypes.c_int),
+        ('inversion', ctypes.c_int),
+        ('random', ctypes.c_int),
     ]
 
-RenderSettingsPtr = _ct.POINTER(RenderSettings)
+RenderSettingsPtr = ctypes.POINTER(RenderSettings)
 
 DEFAULT_RENDER_SETTINGS = RenderSettings.in_dll(libaa, 'aa_defrenderparams')
 
@@ -98,15 +98,15 @@ DITHER_FLOYD_STEINBERG = 2
 class Driver(Structure):
     pass
 
-DriverPtr = _ct.POINTER(Driver)
+DriverPtr = ctypes.POINTER(Driver)
 
 class Context(Structure):
     pass
 
-ContextPtr = _ct.POINTER(Context)
+ContextPtr = ctypes.POINTER(Context)
 
 aa_init = libaa.aa_init
-aa_init.argtypes = [DriverPtr, HardwareSettingsPtr, _ct.c_void_p]
+aa_init.argtypes = [DriverPtr, HardwareSettingsPtr, ctypes.c_void_p]
 aa_init.restype = ContextPtr
 
 aa_close = libaa.aa_close
@@ -114,34 +114,34 @@ aa_close.argtypes = [ContextPtr]
 
 aa_image = libaa.aa_image
 aa_image.argtypes = [ContextPtr]
-aa_image.restype = _ct.POINTER(_ct.c_ubyte)
+aa_image.restype = ctypes.POINTER(ctypes.c_ubyte)
 
 aa_text = libaa.aa_text
 aa_text.argtypes = [ContextPtr]
-aa_text.restype = _ct.POINTER(_ct.c_ubyte)
+aa_text.restype = ctypes.POINTER(ctypes.c_ubyte)
 
 aa_attrs = libaa.aa_attrs
 aa_attrs.argtypes = [ContextPtr]
-aa_attrs.restype = _ct.POINTER(_ct.c_ubyte)
+aa_attrs.restype = ctypes.POINTER(ctypes.c_ubyte)
 
 aa_imgwidth = libaa.aa_imgwidth
 aa_imgwidth.argtypes = [ContextPtr]
-aa_imgwidth.restype = _ct.c_int
+aa_imgwidth.restype = ctypes.c_int
 
 aa_imgheight = libaa.aa_imgheight
 aa_imgheight.argtypes = [ContextPtr]
-aa_imgheight.restype = _ct.c_int
+aa_imgheight.restype = ctypes.c_int
 
 aa_scrwidth = libaa.aa_scrwidth
 aa_scrwidth.argtypes = [ContextPtr]
-aa_scrwidth.restype = _ct.c_int
+aa_scrwidth.restype = ctypes.c_int
 
 aa_scrheight = libaa.aa_scrheight
 aa_scrheight.argtypes = [ContextPtr]
-aa_scrheight.restype = _ct.c_int
+aa_scrheight.restype = ctypes.c_int
 
 aa_render = libaa.aa_render
-aa_render.argtypes = [ContextPtr, RenderSettingsPtr] + 4 * [_ct.c_int]
+aa_render.argtypes = [ContextPtr, RenderSettingsPtr] + 4 * [ctypes.c_int]
 
 aa_mem_d = Driver.in_dll(libaa, 'mem_d')
 
@@ -173,7 +173,7 @@ class Screen(object):
         settings = self._get_default_settings()
         for k, v in kwargs.iteritems():
             setattr(settings, k, v)
-        context = self._context = aa_init(_ct.pointer(aa_mem_d), _ct.pointer(settings), None)
+        context = self._context = aa_init(ctypes.pointer(aa_mem_d), ctypes.pointer(settings), None)
         if context is None:
             raise ScreenInitializationFailed
         self._render_width = aa_scrwidth(context)
