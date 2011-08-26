@@ -14,10 +14,7 @@ Programming Language :: Python :: 2
 Topic :: Multimedia :: Graphics
 '''.strip().split('\n')
 
-import os
 import distutils.core
-
-os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 
 f = open('doc/changelog')
 try:
