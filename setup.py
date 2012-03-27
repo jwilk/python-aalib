@@ -12,7 +12,7 @@ Operating System :: POSIX
 Programming Language :: Python
 Programming Language :: Python :: 2
 Topic :: Multimedia :: Graphics
-'''.strip().split('\n')
+'''.strip().splitlines()
 
 import distutils.core
 
