@@ -2,7 +2,7 @@ import os
 import urllib2
 from cStringIO import StringIO
 
-import Image
+from PIL import Image
 import aalib
 
 if os.getenv('TERM') == 'linux':
