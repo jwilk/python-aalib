@@ -1,8 +1,8 @@
-python-aalib (0.2.1) UNRELEASED; urgency=low
+python-aalib (0.2.1) unstable; urgency=low
 
   * Tests: fix compatibility with PIL ≥ 1.2.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Thu, 10 May 2012 23:41:12 +0200
+ -- Jakub Wilk <jwilk@jwilk.net>  Mon, 11 Feb 2013 16:16:06 +0100
 
 python-aalib (0.2) unstable; urgency=low
 
