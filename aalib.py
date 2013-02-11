@@ -24,7 +24,7 @@
 bindings for AAlib, an ASCII art library
 '''
 
-import ctypes as ctypes
+import ctypes
 
 libaa = ctypes.CDLL('libaa.so.1')
 
