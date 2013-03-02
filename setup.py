@@ -1,3 +1,5 @@
+# encoding=UTF-8
+
 # Copyright © 2009-2013 Jakub Wilk <jwilk@jwilk.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
