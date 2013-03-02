@@ -1,9 +1,9 @@
-python-aalib (0.3) UNRELEASED; urgency=low
+python-aalib (0.3) unstable; urgency=low
 
   * Add support for Python 3.X.
   * Update the package descriptions.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Sat, 02 Mar 2013 19:05:18 +0100
+ -- Jakub Wilk <jwilk@jwilk.net>  Sat, 02 Mar 2013 19:31:06 +0100
 
 python-aalib (0.2.1) unstable; urgency=low
 
