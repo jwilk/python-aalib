@@ -1,2 +1,2 @@
 include doc/changelog
-include test.py
+include test/test.py
