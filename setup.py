@@ -61,7 +61,7 @@ distutils.core.setup(
     name = 'python-aalib',
     version = version,
     license = 'MIT',
-    description = 'Bindings for AAlib',
+    description = 'interface to AAlib',
     long_description = __doc__.strip(),
     classifiers = classifiers,
     url = 'http://jwilk.net/software/python-aalib',
