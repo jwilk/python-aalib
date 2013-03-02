@@ -15,8 +15,6 @@ Programming Language :: Python :: 3
 Topic :: Multimedia :: Graphics
 '''.strip().splitlines()
 
-import sys
-
 import distutils.core
 import distutils.command.build_py
 
