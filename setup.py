@@ -1,5 +1,5 @@
 '''
-*python-aalib* is a set of bindings for
+*python-aalib* is an interface to
 `AAlib <http://aa-project.sourceforge.net/aalib/>`_,
 an ASCII art library.
 '''

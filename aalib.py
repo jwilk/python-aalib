@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 '''
-bindings for AAlib, an ASCII art library
+interface to AAlib, an ASCII art library
 '''
 
 import ctypes
