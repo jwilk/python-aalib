@@ -22,7 +22,7 @@
 
 '''
 *python-aalib* is an interface to
-`AAlib <http://aa-project.sourceforge.net/aalib/>`_,
+`AA-lib <http://aa-project.sourceforge.net/aalib/>`_,
 an ASCII art library.
 '''
 
