@@ -1,20 +1,7 @@
 import os
 
-try:
-    # Python 2.X
-    from urllib2 import urlopen
-except ImportError:
-    # Python 3.X
-    from urllib.request import urlopen
-
-try:
-    # Python 2.X
-    from cStringIO import StringIO as BytesIO
-except ImportError:
-    # Python 3.X
-    from io import BytesIO
-
 from PIL import Image, ImageOps
+
 import aalib
 
 here = os.path.dirname(__file__)
