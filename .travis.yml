@@ -1,0 +1,16 @@
+language: python
+python:
+ - "2.6"
+ - "2.7"
+ - "3.2"
+ - "3.3"
+ - "3.4"
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -y libaa1
+install:
+ - pip install pillow
+script:
+ - python setup.py build
+ - cp build/lib*/*.py test/
+ - python test/test.py
