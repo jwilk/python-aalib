@@ -58,17 +58,17 @@ finally:
     f.close()
 
 distutils.core.setup(
-    name = 'python-aalib',
-    version = version,
-    license = 'MIT',
-    description = 'interface to AAlib',
-    long_description = __doc__.strip(),
-    classifiers = classifiers,
-    url = 'http://jwilk.net/software/python-aalib',
-    author = 'Jakub Wilk',
-    author_email = 'jwilk@jwilk.net',
-    py_modules = ['aalib'],
-    cmdclass = dict(build_py=build_py),
+    name='python-aalib',
+    version=version,
+    license='MIT',
+    description='interface to AAlib',
+    long_description=__doc__.strip(),
+    classifiers=classifiers,
+    url='http://jwilk.net/software/python-aalib',
+    author='Jakub Wilk',
+    author_email='jwilk@jwilk.net',
+    py_modules=['aalib'],
+    cmdclass=dict(build_py=build_py),
 )
 
 # vim:ts=4 sw=4 et
