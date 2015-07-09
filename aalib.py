@@ -327,4 +327,4 @@ __all__ = (
     'DITHER_NONE', 'DITHER_ERROR_DISTRIBUTION', 'DITHER_FLOYD_STEINBERG',
 )
 
-# vim:ts=4 sw=4 et
+# vim:ts=4 sts=4 sw=4 et

@@ -71,4 +71,4 @@ distutils.core.setup(
     cmdclass=dict(build_py=build_py),
 )
 
-# vim:ts=4 sw=4 et
+# vim:ts=4 sts=4 sw=4 et

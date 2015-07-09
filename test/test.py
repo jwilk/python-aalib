@@ -40,4 +40,4 @@ with open(os.path.join(here, 'python.jpeg'), 'rb') as fp:
     screen.put_image((0, 0), image)
     print(screen.render())
 
-# vim:ts=4 sw=4 et
+# vim:ts=4 sts=4 sw=4 et
