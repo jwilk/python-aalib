@@ -1,6 +1,6 @@
 # encoding=UTF-8
 
-# Copyright © 2009-2013 Jakub Wilk <jwilk@jwilk.net>
+# Copyright © 2009-2015 Jakub Wilk <jwilk@jwilk.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the “Software”), to deal
@@ -277,7 +277,7 @@ class AsciiScreen(Screen):
 
     '''Pure ASCII screen.'''
 
-    _formats = {ATTRIBUTE_NORMAL: '%s'}
+    _formats = {ATTRIBUTE_NORMAL: '{s}'}
 
     def _get_default_settings(self):
         settings = Screen._get_default_settings(self)
@@ -287,7 +287,7 @@ class AsciiScreen(Screen):
     def render(self, **kwargs):
         raw = Screen.render(self, **kwargs)
         return '\n'.join(
-            ''.join(self._formats[attr] % ch for (ch, attr) in line)
+            ''.join(self._formats[attr].format(s=ch) for (ch, attr) in line)
             for line in raw
         )
     render.__doc__ = Screen.render.__doc__
@@ -297,8 +297,8 @@ class AnsiScreen(AsciiScreen):
     '''Screen that uses ANSI escape sequences.'''
 
     _formats = {
-        ATTRIBUTE_NORMAL: '%s',
-        ATTRIBUTE_BRIGHT: '\x1b[1m%s\x1b[0m',
+        ATTRIBUTE_NORMAL: '{s}',
+        ATTRIBUTE_BRIGHT: '\x1b[1m{s}\x1b[0m',
     }
 
     def _get_default_settings(self):
@@ -311,10 +311,10 @@ class LinuxScreen(AsciiScreen):
     '''Screen that uses Linux console escape sequences.'''
 
     _formats = {
-        ATTRIBUTE_NORMAL: '%s',
-        ATTRIBUTE_BOLD: '\x1b[1m%s\x1b[0m',
-        ATTRIBUTE_DIM: '\x1b[30;1m%s\x1b[0m',
-        ATTRIBUTE_REVERSE: '\x1b[7m%s\x1b[0m',
+        ATTRIBUTE_NORMAL: '{s}',
+        ATTRIBUTE_BOLD: '\x1b[1m{s}\x1b[0m',
+        ATTRIBUTE_DIM: '\x1b[30;1m{s}\x1b[0m',
+        ATTRIBUTE_REVERSE: '\x1b[7m{s}\x1b[0m',
     }
 
     def _get_default_settings(self):
