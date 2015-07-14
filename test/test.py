@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import os
+import sys
 
 from PIL import Image, ImageOps
 
@@ -28,7 +29,9 @@ import aalib
 
 here = os.path.dirname(__file__)
 
-if os.getenv('TERM') == 'linux':
+if not sys.stdout.isatty():
+    screen = aalib.AsciiScreen
+elif os.getenv('TERM') == 'linux':
     screen = aalib.LinuxScreen
 else:
     screen = aalib.AnsiScreen
