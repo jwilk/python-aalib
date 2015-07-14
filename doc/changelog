@@ -1,8 +1,8 @@
 python-aalib (0.3.1) UNRELEASED; urgency=low
 
-  * 
+  * Drop support for Python 2.5.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Sat, 02 Mar 2013 19:37:22 +0100
+ -- Jakub Wilk <jwilk@jwilk.net>  Tue, 14 Jul 2015 17:55:59 +0200
 
 python-aalib (0.3) unstable; urgency=low
 

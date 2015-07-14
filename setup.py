@@ -51,11 +51,8 @@ try:
     f = open('doc/changelog', encoding='UTF-8')
 except TypeError:
     f = open('doc/changelog')
-
-try:
+with f:
     version = f.readline().split()[1].strip('()')
-finally:
-    f.close()
 
 distutils.core.setup(
     name='python-aalib',
