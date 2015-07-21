@@ -9,7 +9,11 @@ addons:
   apt:
     packages:
     - libaa1
+cache:
+  directories:
+  - $HOME/.cache
 install:
+- pip install --upgrade pip
 - pip install pillow
 script:
 - python setup.py build
