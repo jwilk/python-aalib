@@ -1,10 +1,10 @@
-python-aalib (0.3.2) UNRELEASED; urgency=low
+python-aalib (0.3.2) unstable; urgency=low
 
   * Include test image in the tarball.
     Thanks to Stefano Rivera for the bug report.
     https://github.com/jwilk/python-aalib/issues/1
 
- -- Jakub Wilk <jwilk@jwilk.net>  Sat, 11 Jun 2016 23:04:10 +0200
+ -- Jakub Wilk <jwilk@jwilk.net>  Sun, 12 Jun 2016 00:15:04 +0200
 
 python-aalib (0.3.1) unstable; urgency=low
 
