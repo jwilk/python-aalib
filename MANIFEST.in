@@ -1,2 +1,3 @@
 include doc/changelog
 include test/test.py
+include test/*.jpeg
