@@ -1,3 +1,9 @@
+python-aalib (0.3.3) UNRELEASED; urgency=low
+
+  * Include MANIFEST.in in the tarball.
+
+ -- Jakub Wilk <jwilk@jwilk.net>  Fri, 22 Jul 2016 11:46:16 +0200
+
 python-aalib (0.3.2) unstable; urgency=low
 
   * Include test image in the tarball.
