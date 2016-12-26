@@ -37,8 +37,12 @@ Programming Language :: Python :: 3
 Topic :: Multimedia :: Graphics
 '''.strip().splitlines()
 
+import os
+
 import distutils.core
 import distutils.command.build_py
+
+from distutils.command.sdist import sdist as distutils_sdist
 
 try:
     # Python 3.X
@@ -54,6 +58,18 @@ except TypeError:
 with f:
     version = f.readline().split()[1].strip('()')
 
+class cmd_sdist(distutils_sdist):
+
+    def maybe_move_file(self, base_dir, src, dst):
+        src = os.path.join(base_dir, src)
+        dst = os.path.join(base_dir, dst)
+        if os.path.exists(src):
+            self.move_file(src, dst)
+
+    def make_release_tree(self, base_dir, files):
+        distutils_sdist.make_release_tree(self, base_dir, files)
+        self.maybe_move_file(base_dir, 'LICENSE', 'doc/LICENSE')
+
 distutils.core.setup(
     name='python-aalib',
     version=version,
@@ -65,7 +81,10 @@ distutils.core.setup(
     author='Jakub Wilk',
     author_email='jwilk@jwilk.net',
     py_modules=['aalib'],
-    cmdclass=dict(build_py=build_py),
+    cmdclass=dict(
+        build_py=build_py,
+        sdist=cmd_sdist,
+    ),
 )
 
 # vim:ts=4 sts=4 sw=4 et
