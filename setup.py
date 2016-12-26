@@ -35,10 +35,10 @@ from distutils.command.sdist import sdist as distutils_sdist
 
 try:
     # Python 3.X
-    from distutils.command.build_py import build_py_2to3 as build_py
+    from distutils.command.build_py import build_py_2to3 as cmd_build_py
 except ImportError:
     # Python 2.X
-    from distutils.command.build_py import build_py
+    from distutils.command.build_py import build_py as cmd_build_py
 
 classifiers = '''
 Development Status :: 4 - Beta
@@ -88,7 +88,7 @@ distutils.core.setup(
     author_email='jwilk@jwilk.net',
     py_modules=['aalib'],
     cmdclass=dict(
-        build_py=build_py,
+        build_py=cmd_build_py,
         sdist=cmd_sdist,
     ),
 )
