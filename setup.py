@@ -51,12 +51,18 @@ Programming Language :: Python :: 3
 Topic :: Multimedia :: Graphics
 '''.strip().splitlines()
 
-try:
-    f = open('doc/changelog', encoding='UTF-8')
-except TypeError:
-    f = open('doc/changelog')
-with f:
-    version = f.readline().split()[1].strip('()')
+
+def uopen(path):
+    if str is bytes:
+        return open(path, 'rt')
+    else:
+        return open(path, 'rt', encoding='UTF-8')
+
+def get_version():
+    path = os.path.join('doc/changelog')
+    with uopen(path) as file:
+        line = file.readline()
+    return line.split()[1].strip('()')
 
 class cmd_sdist(distutils_sdist):
 
@@ -72,7 +78,7 @@ class cmd_sdist(distutils_sdist):
 
 distutils.core.setup(
     name='python-aalib',
-    version=version,
+    version=get_version(),
     license='MIT',
     description='interface to AAlib',
     long_description=__doc__.strip(),
