@@ -26,17 +26,6 @@
 an ASCII art library.
 '''
 
-classifiers = '''
-Development Status :: 4 - Beta
-Intended Audience :: Developers
-License :: OSI Approved :: MIT License
-Operating System :: POSIX
-Programming Language :: Python
-Programming Language :: Python :: 2
-Programming Language :: Python :: 3
-Topic :: Multimedia :: Graphics
-'''.strip().splitlines()
-
 import os
 
 import distutils.core
@@ -50,6 +39,17 @@ try:
 except ImportError:
     # Python 2.X
     from distutils.command.build_py import build_py
+
+classifiers = '''
+Development Status :: 4 - Beta
+Intended Audience :: Developers
+License :: OSI Approved :: MIT License
+Operating System :: POSIX
+Programming Language :: Python
+Programming Language :: Python :: 2
+Programming Language :: Python :: 3
+Topic :: Multimedia :: Graphics
+'''.strip().splitlines()
 
 try:
     f = open('doc/changelog', encoding='UTF-8')
