@@ -18,7 +18,7 @@ cache:
 install:
 - \[ "$TRAVIS_PYTHON_VERSION" = "3.2" ] || pip install --upgrade pip
 - if [ "$TRAVIS_PYTHON_VERSION" = '2.6' ]; then PILLOW_VERSION=3.4.2; fi
-- pip install pillow${PILLOW_VERSION:+==$PILLOW_VERSION}
+- pip install --verbose pillow${PILLOW_VERSION:+==$PILLOW_VERSION}
 script:
 - python setup.py build
 - cp build/lib*/*.py test/
