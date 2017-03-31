@@ -26,6 +26,7 @@
 an ASCII art library.
 '''
 
+import io
 import os
 
 import distutils.core
@@ -51,16 +52,9 @@ Programming Language :: Python :: 3
 Topic :: Multimedia :: Graphics
 '''.strip().splitlines()
 
-
-def uopen(path):
-    if str is bytes:
-        return open(path, 'rt')
-    else:
-        return open(path, 'rt', encoding='UTF-8')
-
 def get_version():
     path = os.path.join('doc/changelog')
-    with uopen(path) as file:
+    with io.open(path, encoding='UTF-8') as file:
         line = file.readline()
     return line.split()[1].strip('()')
 
