@@ -41,6 +41,13 @@ except ImportError:
     # Python 2.X
     from distutils.command.build_py import build_py as cmd_build_py
 
+try:
+    import distutils644
+except ImportError:
+    pass
+else:
+    distutils644.install()
+
 b''  # Python >= 2.6 is required
 
 classifiers = '''
