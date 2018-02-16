@@ -20,9 +20,12 @@ cache:
 install:
 - if [ "$TRAVIS_PYTHON_VERSION" = '2.6' ]; then PILLOW_VERSION=3.4.2; fi
 - pip install --verbose pillow${PILLOW_VERSION:+==$PILLOW_VERSION}
+- pip install pydiatra pyflakes
 script:
 - PYTHONPATH=$PWD python test/test.py
 - LC_ALL=C python setup.py --version
+- python -m pydiatra .
+- pyflakes .
 - python setup.py install
 - cd /
 - python -c 'import aalib'
