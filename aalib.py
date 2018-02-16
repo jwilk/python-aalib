@@ -25,6 +25,10 @@ interface to AAlib, an ASCII art library
 '''
 
 import ctypes
+import sys
+
+if sys.version_info < (3,):
+    range = __builtins__['xrange']
 
 libaa = ctypes.CDLL('libaa.so.1')
 
@@ -171,7 +175,7 @@ class Screen(object):
         - `bold_value`.
         '''
         settings = self._get_default_settings()
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             setattr(settings, k, v)
         context = self._context = aa_init(ctypes.pointer(aa_mem_d), ctypes.pointer(settings), None)
         if context is None:
@@ -230,9 +234,9 @@ class Screen(object):
         virtual_height = self._virtual_height
         (x0, y0) = xy
         (image_width, image_height) = image.size
-        for y in xrange(max(y0, 0), min(y0 + image_height, virtual_height)):
+        for y in range(max(y0, 0), min(y0 + image_height, virtual_height)):
             p = y * virtual_width
-            for x in xrange(max(x0, 0), min(x0 + image_width, virtual_width)):
+            for x in range(max(x0, 0), min(x0 + image_width, virtual_width)):
                 self._framebuffer[p + x] = image.getpixel((x - x0, y - y0))
 
     def __getitem__(self, xy):
@@ -252,7 +256,7 @@ class Screen(object):
         - `random`.
         '''
         settings = DEFAULT_RENDER_SETTINGS.clone()
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             setattr(settings, k, v)
         context = self._context
         buffer = aa_image(context)
@@ -265,9 +269,9 @@ class Screen(object):
         return [
             [
                 (chr(text[y * width + x]), attrs[y * width + x])
-                for x in xrange(width)
+                for x in range(width)
             ]
-            for y in xrange(height)
+            for y in range(height)
         ]
 
     def __del__(self):
