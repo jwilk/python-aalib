@@ -1,8 +1,9 @@
 python-aalib (0.3.3) UNRELEASED; urgency=low
 
+  * Stop using to 2to3.
   * Include MANIFEST.in in the tarball.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Fri, 22 Jul 2016 11:46:16 +0200
+ -- Jakub Wilk <jwilk@jwilk.net>  Fri, 16 Feb 2018 18:19:18 +0100
 
 python-aalib (0.3.2) unstable; urgency=low
 
