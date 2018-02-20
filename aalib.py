@@ -28,7 +28,8 @@ import ctypes
 import sys
 
 if sys.version_info < (3,):
-    range = __builtins__['xrange']
+    import __builtin__ as builtins
+    range = builtins.xrange
 
 libaa = ctypes.CDLL('libaa.so.1')
 
