@@ -17,9 +17,10 @@ addons:
 cache:
   directories:
   - $HOME/.cache
+before_install:
+- if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pillow_suffix===3.4.2; fi
 install:
-- if [ "$TRAVIS_PYTHON_VERSION" = '2.6' ]; then PILLOW_VERSION=3.4.2; fi
-- pip install --verbose pillow${PILLOW_VERSION:+==$PILLOW_VERSION}
+- pip install --verbose pillow${pillow_suffix}
 - pip install pydiatra pyflakes
 script:
 - PYTHONPATH=$PWD python test/test.py
