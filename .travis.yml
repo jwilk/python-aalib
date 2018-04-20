@@ -14,9 +14,7 @@ addons:
   apt:
     packages:
     - libaa1
-cache:
-  directories:
-  - $HOME/.cache
+cache: pip
 before_install:
 - if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pillow_suffix===3.4.2; fi
 install:
