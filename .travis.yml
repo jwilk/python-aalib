@@ -17,9 +17,12 @@ addons:
 cache: pip
 before_install:
 - if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pillow_suffix===3.4.2; fi
+- pyflakes=pyflakes
+- if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pyflakes='pyflakes<2'; fi
+- if [[ $TRAVIS_PYTHON_VERSION = 3.[23] ]]; then pyflakes='pyflakes<2'; fi
 install:
 - pip install --verbose pillow${pillow_suffix}
-- pip install pydiatra pyflakes
+- pip install pydiatra $pyflakes
 script:
 - PYTHONPATH=$PWD python test/test.py
 - LC_ALL=C python setup.py --version
