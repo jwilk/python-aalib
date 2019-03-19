@@ -27,7 +27,7 @@ from PIL import Image, ImageOps
 
 import aalib
 
-b''  # Python >= 2.6 is required
+type(b'')  # Python >= 2.6 is required
 
 here = os.path.dirname(__file__)
 

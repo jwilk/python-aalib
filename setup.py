@@ -41,7 +41,7 @@ except ImportError:
 else:
     distutils644.install()
 
-b''  # Python >= 2.6 is required
+type(b'')  # Python >= 2.6 is required
 
 classifiers = '''
 Development Status :: 4 - Beta

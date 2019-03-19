@@ -27,7 +27,7 @@ interface to AAlib, an ASCII art library
 import ctypes
 import sys
 
-b''  # Python >= 2.6 is required
+type(b'')  # Python >= 2.6 is required
 
 if sys.version_info < (3,):
     import __builtin__ as builtins
