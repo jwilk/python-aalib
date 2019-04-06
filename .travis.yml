@@ -15,12 +15,13 @@ addons:
     - libaa1
 cache: pip
 before_install:
-- if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pillow_suffix===3.4.2; fi
+- pillow=pillow
+- if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pillow+='<4'; fi
 - pyflakes=pyflakes
 - if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pyflakes='pyflakes<2'; fi
 - if [[ $TRAVIS_PYTHON_VERSION = 3.[23] ]]; then pyflakes='pyflakes<2'; fi
 install:
-- pip install --verbose pillow${pillow_suffix}
+- pip install --verbose $pillow
 - pip install pydiatra $pyflakes
 script:
 - dpkg-parsechangelog -ldoc/changelog --all 2>&1 >/dev/null | { ! grep .; }
