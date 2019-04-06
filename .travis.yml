@@ -17,6 +17,7 @@ cache: pip
 before_install:
 - pillow=pillow
 - if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pillow+='<4'; fi
+- if [[ $TRAVIS_PYTHON_VERSION = 3.[23] ]]; then pillow+='<6'; fi
 - pyflakes=pyflakes
 - if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pyflakes='pyflakes<2'; fi
 - if [[ $TRAVIS_PYTHON_VERSION = 3.[23] ]]; then pyflakes='pyflakes<2'; fi
