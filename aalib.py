@@ -30,8 +30,8 @@ import sys
 type(b'')  # Python >= 2.6 is required
 
 if sys.version_info < (3,):
-    import __builtin__ as builtins
-    range = builtins.xrange
+    import __builtin__ as builtins  # pylint: disable=import-error
+    range = builtins.xrange  # pylint: disable=redefined-builtin
 
 libaa = ctypes.CDLL('libaa.so.1')
 
