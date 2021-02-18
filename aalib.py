@@ -47,7 +47,6 @@ class Structure(ctypes.Structure):
         return clone
 
 class HardwareSettings(Structure):
-    _pack_ = 4
     _fields_ = [
         ('font', FontPtr),
         ('options', ctypes.c_int),
@@ -84,7 +83,6 @@ ATTRIBUTE_REVERSE = 4
 DEFAULT_HARDWARE_SETTINGS = HardwareSettings.in_dll(libaa, 'aa_defparams')
 
 class RenderSettings(Structure):
-    _pack_ = 4
     _fields_ = [
         ('brightness', ctypes.c_int),
         ('contrast', ctypes.c_int),
