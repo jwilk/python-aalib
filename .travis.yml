@@ -19,6 +19,7 @@ addons:
   apt:
     packages:
     - libaa1
+    - libaa1-dev
 cache: pip
 before_install:
 - pillow=pillow
@@ -33,6 +34,7 @@ install:
 script:
 - dpkg-parsechangelog -ldoc/changelog --all 2>&1 >/dev/null | { ! grep .; }
 - PYTHONPATH=$PWD python test/test.py
+- PYTHONPATH=$PWD make -C test abi-test
 - LC_ALL=C python setup.py --version
 - python -m pydiatra .
 - pyflakes .
