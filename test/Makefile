@@ -7,7 +7,11 @@ CFLAGS ?= -O2 -g
 CFLAGS += -Wall
 
 .PHONY: all
-all:
+all: smoke-test
+
+.PHONY: smoke-test
+smoke-test:
+	$(PYTHON) test.py
 
 .PHONY: abi-test
 abi-test: dump-abi
