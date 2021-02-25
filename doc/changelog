@@ -1,4 +1,4 @@
-python-aalib (0.4) UNRELEASED; urgency=low
+python-aalib (0.4) unstable; urgency=low
 
   * Use default structure field alignment.
     This fixes ABI mismatch on 64-bit architectures.
@@ -9,7 +9,7 @@ python-aalib (0.4) UNRELEASED; urgency=low
   * Include MANIFEST.in in the source tarball.
   * Use distutils644 to normalize source tarball permissions etc.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Thu, 25 Feb 2021 16:58:19 +0100
+ -- Jakub Wilk <jwilk@jwilk.net>  Thu, 25 Feb 2021 17:37:15 +0100
 
 python-aalib (0.3.2) unstable; urgency=low
 
