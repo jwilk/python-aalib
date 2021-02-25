@@ -1,10 +1,10 @@
-python-aalib (0.3.3) UNRELEASED; urgency=low
+python-aalib (0.4) UNRELEASED; urgency=low
 
   * Stop using to 2to3.
   * Include MANIFEST.in in the source tarball.
   * Use distutils644 to normalize source tarball permissions etc.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Fri, 18 May 2018 22:42:20 +0200
+ -- Jakub Wilk <jwilk@jwilk.net>  Thu, 25 Feb 2021 16:58:19 +0100
 
 python-aalib (0.3.2) unstable; urgency=low
 
