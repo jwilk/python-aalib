@@ -4,6 +4,7 @@ python-aalib (0.4) UNRELEASED; urgency=low
     This fixes ABI mismatch on 64-bit architectures.
     https://github.com/jwilk/python-aalib/issues/4
   * Add ABI checking tests.
+  * Add separate license file.
   * Stop using to 2to3.
   * Include MANIFEST.in in the source tarball.
   * Use distutils644 to normalize source tarball permissions etc.
