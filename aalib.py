@@ -16,7 +16,11 @@ if sys.version_info < (3,):
     import __builtin__ as builtins  # pylint: disable=import-error
     range = builtins.xrange  # pylint: disable=redefined-builtin
 
-libaa = ctypes.CDLL('libaa.so.1')
+if sys.platform == 'darwin':
+    libaa = 'libaa.1.dylib'
+else:
+    libaa = 'libaa.so.1'
+libaa = ctypes.CDLL(libaa)
 
 class Font(ctypes.Structure):
     pass
