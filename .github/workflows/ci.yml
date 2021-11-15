@@ -25,6 +25,8 @@ jobs:
           os: ubuntu-20.04
         - python: '3.10'
           os: ubuntu-20.04
+        - python: '3.10'
+          os: macos-11
         - python: '3.11-dev'
           os: ubuntu-20.04
     runs-on: ${{matrix.os}}
@@ -42,12 +44,28 @@ jobs:
     - name: install AAlib
       run:
         sudo apt-get install libaa1-dev
+      if: startsWith(matrix.os, 'ubuntu-')
+    - name: install AAlib
+      run: |
+        brew install automake
+        wget https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
+        tar -xzf aalib-*.tar.gz
+        cd aalib-*/
+        autoreconf -vfi
+        curl https://raw.githubusercontent.com/Homebrew/formula-patches/6e23dfb/aalib/1.4rc5.patch | patch -p1
+        sed -i~ -e $'1 i\\\n#include <stdlib.h>\\\n#include <string.h>' src/*.c
+        ./configure
+        make
+        make install
+        rm -rf aalib-*
+      if: startsWith(matrix.os, 'macos-')
     - name: install Pillow
       run:
         python -m pip install --verbose pillow
     - name: check changelog syntax
       run:
         dpkg-parsechangelog -ldoc/changelog --all 2>&1 >/dev/null | { ! grep .; }
+      if: startsWith(matrix.os, 'ubuntu-')
     - name: run smoke test
       run:
         PYTHONPATH=$PWD make -C test smoke-test
