@@ -38,7 +38,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.cache/pip
-        key: pip-${{matrix.os}}-python${{matrix.python-version}}
+        key: pip-${{matrix.os}}-python${{matrix.python}}
     - name: install AAlib
       run:
         sudo apt-get install libaa1-dev
