@@ -1,0 +1,82 @@
+name: CI
+on:
+- push
+- pull_request
+jobs:
+  main:
+    strategy:
+      matrix:
+        include:
+        - python: '2.7'
+          os: ubuntu-20.04
+        - python: '3.3'
+          os: ubuntu-18.04
+        - python: '3.4'
+          os: ubuntu-18.04
+        - python: '3.5'
+          os: ubuntu-18.04
+        - python: '3.6'
+          os: ubuntu-20.04
+        - python: '3.7'
+          os: ubuntu-20.04
+        - python: '3.8'
+          os: ubuntu-20.04
+        - python: '3.9'
+          os: ubuntu-20.04
+        - python: '3.10'
+          os: ubuntu-20.04
+        - python: '3.11-dev'
+          os: ubuntu-20.04
+    runs-on: ${{matrix.os}}
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up Python ${{matrix.python}}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{matrix.python}}
+    - name: set up pip cache
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: pip-${{matrix.os}}-python${{matrix.python-version}}
+    - name: install AAlib
+      run:
+        sudo apt-get install libaa1-dev
+    - name: install Pillow
+      run:
+        python -m pip install --verbose pillow
+    - name: check changelog syntax
+      run:
+        dpkg-parsechangelog -ldoc/changelog --all 2>&1 >/dev/null | { ! grep .; }
+    - name: run smoke test
+      run:
+        PYTHONPATH=$PWD make -C test smoke-test
+    - name: run ABI test
+      run:
+        PYTHONPATH=$PWD make -C test abi-test
+    - name: run pydiatra
+      run: |
+        python -m pip install pydiatra
+        python -m pydiatra .
+    - name: run pyflakes
+      run: |
+        pyflakes=pyflakes
+        if [[ ${{matrix.python}} = 3.3 ]]; then pyflakes+='<2'; fi
+        python -m pip install $pyflakes
+        python -m pyflakes .
+    - name: check whether setup.py works in the C locale
+      run:
+        LC_ALL=C python setup.py --version
+    - name: install via setup.py
+      run: |
+        python setup.py install
+    - name: check import
+      run: |
+        cd /
+        python -c 'import aalib'
+    - name: check for namesquatting
+      run: |
+        set +e
+        curl -fsS https://pypi.org/simple/aalib/; [ $? -eq 22 ] || exit 1
+
+# vim:ts=2 sts=2 sw=2 et
