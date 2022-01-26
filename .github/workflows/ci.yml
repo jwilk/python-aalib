@@ -54,7 +54,7 @@ jobs:
         autoreconf -vfi
         curl https://raw.githubusercontent.com/Homebrew/formula-patches/6e23dfb/aalib/1.4rc5.patch | patch -p1
         sed -i~ -e $'1 i\\\n#include <stdlib.h>\\\n#include <string.h>' src/*.c
-        ./configure
+        ./configure --with-x11-driver=no
         make
         make install
         rm -rf aalib-*
