@@ -62,7 +62,7 @@ distutils.core.setup(
     description='interface to AAlib',
     long_description=__doc__.strip(),
     classifiers=classifiers,
-    url='http://jwilk.net/software/python-aalib',
+    url='https://jwilk.net/software/python-aalib',
     author='Jakub Wilk',
     author_email='jwilk@jwilk.net',
     py_modules=['aalib'],
