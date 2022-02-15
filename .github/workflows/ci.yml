@@ -41,6 +41,11 @@ jobs:
       with:
         path: ~/.cache/pip
         key: pip-${{matrix.os}}-python${{matrix.python}}
+    - name: set up APT
+      run: |
+        printf 'Apt::Install-Recommends "false";\n' | sudo tee -a /etc/apt/apt.conf
+        sudo apt-get update
+      if: startsWith(matrix.os, 'ubuntu-')
     - name: install AAlib
       run:
         sudo apt-get install libaa1-dev
