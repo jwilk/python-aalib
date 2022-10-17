@@ -5,7 +5,7 @@
 
 '''
 *python-aalib* is an interface to
-`AAlib <http://aa-project.sourceforge.net/aalib/>`_,
+`AAlib <https://aa-project.sourceforge.net/aalib/>`_,
 an ASCII art library.
 '''
 
