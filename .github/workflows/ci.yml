@@ -29,6 +29,8 @@ jobs:
           os: macos-11
         - python: '3.11'
           os: ubuntu-22.04
+        - python: '3.11-dev'
+          os: ubuntu-22.04
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v3
