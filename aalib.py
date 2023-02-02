@@ -279,7 +279,7 @@ class AsciiScreen(Screen):
     def render(self, **kwargs):
         raw = Screen.render(self, **kwargs)
         return str.join('\n', (
-            ''.join(self._formats[attr].format(s=ch) for (ch, attr) in line)
+            str.join('', (self._formats[attr].format(s=ch) for (ch, attr) in line))
             for line in raw
         ))
     render.__doc__ = Screen.render.__doc__
