@@ -3,8 +3,10 @@ python-aalib (0.5) UNRELEASED; urgency=low
   * Add support for macOS.
     Thanks to Valery Krasnoselsky for the bug report.
     https://github.com/jwilk/python-aalib/issues/3
+  * Use HTTPS for aa-project.sourceforge.net.
+  * Use HTTPS for jwilk.net.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Wed, 26 Jan 2022 12:54:13 +0100
+ -- Jakub Wilk <jwilk@jwilk.net>  Mon, 13 Feb 2023 13:29:34 +0100
 
 python-aalib (0.4) unstable; urgency=low
 
