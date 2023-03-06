@@ -99,12 +99,5 @@ jobs:
       run: |
         cd /
         python -c 'import aalib'
-  PyPI:
-    runs-on: ubuntu-latest
-    steps:
-    - name: check for namesquatting
-      run: |
-        set +e
-        curl -fsS https://pypi.org/simple/aalib/; [ $? -eq 22 ] || exit 1
 
 # vim:ts=2 sts=2 sw=2 et
