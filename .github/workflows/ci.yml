@@ -81,9 +81,7 @@ jobs:
         python -m pydiatra -v .
     - name: run pyflakes
       run: |
-        pyflakes=pyflakes
-        if [[ ${{matrix.python}} = 3.3 ]]; then pyflakes+='<2'; fi
-        python -m pip install $pyflakes
+        python -m pip install pyflakes
         python -m pyflakes .
     - name: check whether setup.py works in the C locale
       run:
