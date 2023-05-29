@@ -44,6 +44,11 @@ jobs:
         printf 'Apt::Install-Recommends "false";\n' | sudo tee -a /etc/apt/apt.conf
         sudo apt-get update
       if: startsWith(matrix.os, 'ubuntu-')
+    - name: install setuptools (if distutils is missing)
+      run: |
+        if ! [ -d ${{env.pythonLocation}}/lib/python*/distutils/ ]; then
+          python -m pip install setuptools
+        fi
     - name: install AAlib
       run:
         sudo apt-get install libaa1-dev
