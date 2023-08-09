@@ -30,6 +30,11 @@ jobs:
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v3
+    - name: set up APT
+      run: |
+        printf 'Apt::Install-Recommends "false";\n' | sudo tee -a /etc/apt/apt.conf
+        sudo apt-get update
+      if: startsWith(matrix.os, 'ubuntu-')
     - name: set up Python ${{matrix.python}}
       if: matrix.python != '2.7'
       uses: actions/setup-python@v4
@@ -47,11 +52,6 @@ jobs:
       with:
         path: ~/.cache/pip
         key: pip-${{matrix.os}}-python${{matrix.python}}
-    - name: set up APT
-      run: |
-        printf 'Apt::Install-Recommends "false";\n' | sudo tee -a /etc/apt/apt.conf
-        sudo apt-get update
-      if: startsWith(matrix.os, 'ubuntu-')
     - name: install setuptools (if distutils is missing)
       if: env.pythonLocation
       run: |
