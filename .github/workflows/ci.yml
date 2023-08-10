@@ -44,7 +44,7 @@ jobs:
       if: matrix.python == '2.7'
       run: |
         sudo apt-get install python-is-python2
-        curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+        wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
         sudo python get-pip.py
         rm get-pip.py
     - name: set up pip cache
@@ -69,7 +69,9 @@ jobs:
         tar -xzf aalib-*.tar.gz
         cd aalib-*/
         autoreconf -vfi
-        curl https://raw.githubusercontent.com/Homebrew/formula-patches/6e23dfb/aalib/1.4rc5.patch | patch -p1
+        wget https://raw.githubusercontent.com/Homebrew/formula-patches/6e23dfb/aalib/1.4rc5.patch
+        patch -p1 < 1.4rc5.patch
+        rm 1.4rc5.patch
         sed -i~ -e $'1 i\\\n#include <stdlib.h>\\\n#include <string.h>' src/*.c
         ./configure --with-x11-driver=no
         make
