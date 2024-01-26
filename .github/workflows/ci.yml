@@ -29,7 +29,7 @@ jobs:
           os: ubuntu-22.04
     runs-on: ${{matrix.os}}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: set up APT
       run: |
         printf 'Apt::Install-Recommends "false";\n' | sudo tee -a /etc/apt/apt.conf
