@@ -290,7 +290,7 @@ class AnsiScreen(AsciiScreen):
 
     _formats = {
         ATTRIBUTE_NORMAL: '{s}',
-        ATTRIBUTE_BRIGHT: '\x1B[1m{s}\x1B[0m',
+        ATTRIBUTE_BRIGHT: '\33[1m{s}\33[0m',
     }
 
     def _get_default_settings(self):
@@ -304,9 +304,9 @@ class LinuxScreen(AsciiScreen):
 
     _formats = {
         ATTRIBUTE_NORMAL: '{s}',
-        ATTRIBUTE_BOLD: '\x1B[1m{s}\x1B[0m',
-        ATTRIBUTE_DIM: '\x1B[30;1m{s}\x1B[0m',
-        ATTRIBUTE_REVERSE: '\x1B[7m{s}\x1B[0m',
+        ATTRIBUTE_BOLD: '\33[1m{s}\33[0m',
+        ATTRIBUTE_DIM: '\33[30;1m{s}\33[0m',
+        ATTRIBUTE_REVERSE: '\33[7m{s}\33[0m',
     }
 
     def _get_default_settings(self):
