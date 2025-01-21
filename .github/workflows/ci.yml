@@ -24,7 +24,7 @@ jobs:
         - python: '3.12'
           os: ubuntu-22.04
         - python: '3.12'
-          os: macos-12
+          os: macos-13
         - python: '3.13'
           os: ubuntu-24.04
     runs-on: ${{matrix.os}}
