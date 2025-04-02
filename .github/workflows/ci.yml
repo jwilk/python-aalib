@@ -6,6 +6,7 @@ on:
 jobs:
   main:
     strategy:
+      fail-fast: false
       matrix:
         include:
         - python: '2.7'
