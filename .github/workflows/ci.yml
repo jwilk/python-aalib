@@ -86,6 +86,14 @@ jobs:
     - name: run smoke test
       run:
         PYTHONPATH=$PWD make -C test smoke-test
+    - name: install valgrind
+      if: startsWith(matrix.os, 'ubuntu-')
+      run:
+        sudo apt-get install valgrind
+    - name: run smoke test under valgrind
+      if: startsWith(matrix.os, 'ubuntu-')
+      run:
+        PYTHONPATH=$PWD PYTHONMALLOC=malloc make -C test smoke-test PYTHON='valgrind -q --error-exitcode=1 --exit-on-first-error=yes python'
     - name: run ABI test
       run:
         PYTHONPATH=$PWD make -C test abi-test
