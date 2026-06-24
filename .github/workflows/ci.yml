@@ -65,7 +65,7 @@ jobs:
     - name: install AAlib
       if: startsWith(matrix.os, 'macos-')
       run: |
-        brew install automake
+        brew install automake libtool
         wget https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
         tar -xzf aalib-*.tar.gz
         cd aalib-*/
